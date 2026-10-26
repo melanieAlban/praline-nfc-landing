@@ -3,223 +3,205 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Praliné Coffee House · Baños de Agua Santa</title>
+<meta name="description" content="Cafetería de especialidad en Baños de Agua Santa, Ecuador. Menú, Wi-Fi, horario y cómo llegar.">
 <meta name="theme-color" content="#A27572">
-<title>Praliné Coffee House</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Praliné Coffee House">
+<meta property="og:description" content="Cafetería de especialidad en Baños de Agua Santa, Ecuador.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/logo-light.webp" type="image/webp">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div id="page" style="min-height:100%;background:#FFFFFF;display:flex;justify-content:center">
-<div style="width:100%;max-width:480px;position:relative;background:
-    radial-gradient(circle at 18% 22%, rgba(90,58,46,.05) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 62% 71%, rgba(20,20,20,.035) 0 1px, transparent 1.6px),
-    radial-gradient(circle at 88% 41%, rgba(90,58,46,.045) 0 1px, transparent 1.6px),
-    #FFFFFF;background-size:37px 37px,53px 53px,71px 71px;overflow:hidden">
+<!-- Iconos: Phosphor Light (MIT). Una sola familia, mismo trazo, todos con fill="currentColor". -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-menu" viewBox="0 0 256 256"><path d="M232,50H160a38,38,0,0,0-32,17.55A38,38,0,0,0,96,50H24a6,6,0,0,0-6,6V200a6,6,0,0,0,6,6H96a26,26,0,0,1,26,26,6,6,0,0,0,12,0,26,26,0,0,1,26-26h72a6,6,0,0,0,6-6V56A6,6,0,0,0,232,50ZM96,194H30V62H96a26,26,0,0,1,26,26V204.31A37.86,37.86,0,0,0,96,194Zm130,0H160a37.87,37.87,0,0,0-26,10.32V88a26,26,0,0,1,26-26h66ZM160,90h40a6,6,0,0,1,0,12H160a6,6,0,0,1,0-12Zm46,38a6,6,0,0,1-6,6H160a6,6,0,0,1,0-12h40A6,6,0,0,1,206,128Zm0,32a6,6,0,0,1-6,6H160a6,6,0,0,1,0-12h40A6,6,0,0,1,206,160Z"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 256 256"><path d="M138,204a10,10,0,1,1-10-10A10,10,0,0,1,138,204ZM235.81,88.55a170,170,0,0,0-215.62,0,6,6,0,1,0,7.62,9.27,158,158,0,0,1,200.38,0,6,6,0,1,0,7.62-9.27Zm-32.08,35.79a122,122,0,0,0-151.46,0,6,6,0,0,0,7.46,9.41,110,110,0,0,1,136.54,0A6,6,0,0,0,200,135a6,6,0,0,0,3.73-10.7Zm-32.2,35.81a74,74,0,0,0-87.06,0,6,6,0,0,0,7.06,9.7,62,62,0,0,1,72.94,0,6,6,0,0,0,8.38-1.32A6,6,0,0,0,171.53,160.15Z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 256 256"><path d="M216,34H88a6,6,0,0,0-6,6V82H40a6,6,0,0,0-6,6V216a6,6,0,0,0,6,6H168a6,6,0,0,0,6-6V174h42a6,6,0,0,0,6-6V40A6,6,0,0,0,216,34ZM162,210H46V94H162Zm48-48H174V88a6,6,0,0,0-6-6H94V46H210Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 256 256"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 256 256"><path d="M237.28,97.87A14.18,14.18,0,0,0,224.76,88l-60.25-4.87-23.22-56.2a14.37,14.37,0,0,0-26.58,0L91.49,83.11,31.24,88a14.18,14.18,0,0,0-12.52,9.89A14.43,14.43,0,0,0,23,113.32L69,152.93l-14,59.25a14.4,14.4,0,0,0,5.59,15,14.1,14.1,0,0,0,15.91.6L128,196.12l51.58,31.71a14.1,14.1,0,0,0,15.91-.6,14.4,14.4,0,0,0,5.59-15l-14-59.25L233,113.32A14.43,14.43,0,0,0,237.28,97.87Zm-12.14,6.37-48.69,42a6,6,0,0,0-1.92,5.92l14.88,62.79a2.35,2.35,0,0,1-.95,2.57,2.24,2.24,0,0,1-2.6.1L131.14,184a6,6,0,0,0-6.28,0L70.14,217.61a2.24,2.24,0,0,1-2.6-.1,2.35,2.35,0,0,1-1-2.57l14.88-62.79a6,6,0,0,0-1.92-5.92l-48.69-42a2.37,2.37,0,0,1-.73-2.65,2.28,2.28,0,0,1,2.07-1.65l63.92-5.16a6,6,0,0,0,5.06-3.69l24.63-59.6a2.35,2.35,0,0,1,4.38,0l24.63,59.6a6,6,0,0,0,5.06,3.69l63.92,5.16a2.28,2.28,0,0,1,2.07,1.65A2.37,2.37,0,0,1,225.14,104.24Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 256 256"><path d="M128,82a46,46,0,1,0,46,46A46.06,46.06,0,0,0,128,82Zm0,80a34,34,0,1,1,34-34A34,34,0,0,1,128,162ZM176,26H80A54.06,54.06,0,0,0,26,80v96a54.06,54.06,0,0,0,54,54h96a54.06,54.06,0,0,0,54-54V80A54.06,54.06,0,0,0,176,26Zm42,150a42,42,0,0,1-42,42H80a42,42,0,0,1-42-42V80A42,42,0,0,1,80,38h96a42,42,0,0,1,42,42ZM190,76a10,10,0,1,1-10-10A10,10,0,0,1,190,76Z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 256 256"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm6,191.8V150h26a6,6,0,0,0,0-12H134V112a18,18,0,0,1,18-18h16a6,6,0,0,0,0-12H152a30,30,0,0,0-30,30v26H96a6,6,0,0,0,0,12h26v67.8a90,90,0,1,1,12,0Z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 256 256"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 256 256"><path d="M128,66a38,38,0,1,0,38,38A38,38,0,0,0,128,66Zm0,64a26,26,0,1,1,26-26A26,26,0,0,1,128,130Zm0-112a86.1,86.1,0,0,0-86,86c0,30.91,14.34,63.74,41.47,94.94a252.32,252.32,0,0,0,41.09,38,6,6,0,0,0,6.88,0,252.32,252.32,0,0,0,41.09-38c27.13-31.2,41.47-64,41.47-94.94A86.1,86.1,0,0,0,128,18Zm0,206.51C113,212.93,54,163.62,54,104a74,74,0,0,1,148,0C202,163.62,143,212.93,128,224.51Z"/></symbol>
+  <symbol id="i-caret" viewBox="0 0 256 256"><path d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z"/></symbol>
+  <symbol id="i-out" viewBox="0 0 256 256"><path d="M198,64V168a6,6,0,0,1-12,0V78.48L68.24,196.24a6,6,0,0,1-8.48-8.48L177.52,70H88a6,6,0,0,1,0-12H192A6,6,0,0,1,198,64Z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 256 256"><path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 256 256"><path d="M178,42c-21,0-39.26,9.47-50,25.34C117.26,51.47,99,42,78,42a60.07,60.07,0,0,0-60,60c0,29.2,18.2,59.59,54.1,90.31a334.68,334.68,0,0,0,53.06,37,6,6,0,0,0,5.68,0,334.68,334.68,0,0,0,53.06-37C219.8,161.59,238,131.2,238,102A60.07,60.07,0,0,0,178,42ZM128,217.11C111.59,207.64,30,157.72,30,102A48.05,48.05,0,0,1,78,54c20.28,0,37.31,10.83,44.45,28.27a6,6,0,0,0,11.1,0C140.69,64.83,157.72,54,178,54a48.05,48.05,0,0,1,48,48C226,157.72,144.41,207.64,128,217.11Z"/></symbol>
+  <symbol id="i-bean" viewBox="0 0 256 256"><path d="M210.34,45.66C194,29.35,170,22.87,142.79,27.42,116.28,31.83,89.71,46.24,68,68s-36.14,48.3-40.56,74.81C22.87,170,29.35,194,45.66,210.34,58.57,223.25,76.29,230,96.64,230a101.59,101.59,0,0,0,16.57-1.41c26.51-4.42,53.08-18.83,74.82-40.56s36.14-48.31,40.56-74.82C233.13,86,226.65,62,210.34,45.66ZM76.46,76.46C101.52,51.4,132.46,38,159.18,38c12.58,0,24.22,3,33.87,9.12a108,108,0,0,0-34.71,18c-18.82,14.86-31,35.62-36.22,61.71C112,177.35,75.18,194,52,199.5,26.3,170.42,36.83,116.09,76.46,76.46ZM179.54,179.54C142.68,216.4,93.1,228.1,63,208.91a108,108,0,0,0,34.71-18c18.82-14.86,31-35.62,36.22-61.71C144,78.65,180.82,62,204.05,56.5,229.7,85.59,219.17,139.91,179.54,179.54Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 256 256"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm62-90a6,6,0,0,1-6,6H128a6,6,0,0,1-6-6V72a6,6,0,0,1,12,0v50h50A6,6,0,0,1,190,128Z"/></symbol>
+</svg>
 
-  <!-- textura de papel: ruido generado en el propio archivo (SVG inline como data-URI, sin imágenes externas) -->
-  <div aria-hidden="true" style="position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.4;mix-blend-mode:multiply;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22160%22 height=%22160%22 filter=%22url(%23n)%22 opacity=%220.32%22/></svg>');background-size:160px 160px"></div>
+<div id="page" class="page">
+<div class="column" id="top">
 
-  <!-- ============ HERO ============ -->
-  <div style="position:relative;background:#A27572;padding:62px 28px 96px;overflow:hidden">
-    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.12;background-image:url('assets/praline-botanical-white.png');background-size:280px 280px;background-repeat:repeat"></div>
-
-    <!-- idioma: cápsula crema para que las siglas no queden en texto chico sobre rosa -->
-    <div style="position:absolute;top:8px;right:12px;z-index:2;display:flex;align-items:center">
-      <button type="button" id="btn-es" lang="es" aria-label="Español" style="height:48px;width:48px;padding:0;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:flex-end">
-        <span id="pill-es" style="display:flex;align-items:center;justify-content:center;height:30px;width:40px;border-radius:999px 0 0 999px;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em">ES</span>
+  <!-- ============ BARRA SUPERIOR (fija) ============ -->
+  <header class="topbar" id="topbar">
+    <a class="topbar-brand" href="#top" data-t-aria="home">
+      <img src="assets/logo-dark.webp" alt="Praliné Coffee House" width="140" height="45">
+    </a>
+    <nav class="topbar-actions" data-t-aria="nav">
+      <button type="button" class="topbar-cta" id="bar-menu" aria-haspopup="dialog">
+        <svg class="ic ic-sm" aria-hidden="true"><use href="#i-menu"/></svg>
+        <span data-t="menuShort"></span>
       </button>
-      <button type="button" id="btn-en" lang="en" aria-label="English" style="height:48px;width:48px;padding:0;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:flex-start">
-        <span id="pill-en" style="display:flex;align-items:center;justify-content:center;height:30px;width:40px;border-radius:0 999px 999px 0;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em">EN</span>
-      </button>
-    </div>
+      <div class="lang" role="group" data-t-aria="lang">
+        <button type="button" id="btn-es" lang="es" aria-label="Español">ES</button>
+        <button type="button" id="btn-en" lang="en" aria-label="English">EN</button>
+      </div>
+    </nav>
+  </header>
 
-    <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:20px;animation:prFade .3s ease-out both">
-      <!-- estado: chip + línea de contexto (calculados con la hora local) -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
-        <div style="display:flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid #DCDCCA;border-radius:999px;background:#EFE3D6">
-          <span id="status-dot" style="width:6px;height:6px;border-radius:50%"></span>
-          <span id="status-label" style="font-family:'Jost',sans-serif;font-weight:500;font-size:10px;letter-spacing:.2em;color:#5A3A2E;text-transform:uppercase;white-space:nowrap"></span>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="hero-inner reveal">
+        <p class="status" id="status" aria-live="polite">
+          <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+          <span class="status-label" id="status-label"></span>
+          <span class="status-sep" aria-hidden="true"></span>
+          <span class="status-note" id="status-note"></span>
+        </p>
+        <h1 id="hero-title" class="hero-logo">
+          <img src="assets/logo-light.webp" alt="Praliné Coffee House" width="248" height="79" fetchpriority="high">
+        </h1>
+        <p class="hero-tagline"><span data-t="heroA"></span><br><span data-t="heroB"></span></p>
+      </div>
+    </section>
+
+    <!-- arco rosa → blanco, con el filete de la portada del menú impreso -->
+    <div class="arch" aria-hidden="true"><span></span></div>
+
+    <!-- ============ 1. EN LA MESA ============ -->
+    <section class="block block-first reveal" style="--d:.06s" data-t-aria="tableSection">
+      <button type="button" id="menu-open" class="cta" aria-haspopup="dialog">
+        <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+        <span class="row-text">
+          <span class="cta-title" data-t="menu"></span>
+          <span class="cta-sub" data-t="menuSub"></span>
+        </span>
+        <svg class="ic ic-xs row-trail" aria-hidden="true"><use href="#i-caret"/></svg>
+      </button>
+
+      <div class="card wifi">
+        <div class="wifi-head">
+          <svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg>
+          <h2 class="label" data-t="wifi"></h2>
         </div>
-        <p id="status-note" style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:18px;line-height:1.3;color:#FFFFFF;text-align:center"></p>
+        <dl class="wifi-data">
+          <dt class="label label-sm" data-t="ssid"></dt>
+          <dd data-cfg="wifiSsid"></dd>
+          <dt class="label label-sm" data-t="pass"></dt>
+          <dd class="wifi-pass" data-cfg="wifiPass"></dd>
+        </dl>
+        <button type="button" id="copy-btn" class="btn-outline">
+          <svg class="ic ic-sm" aria-hidden="true"><use id="copy-icon" href="#i-copy"/></svg>
+          <span id="copy-text"></span>
+        </button>
+        <span class="sr-only" id="copy-live" aria-live="polite"></span>
       </div>
+    </section>
 
-      <h1 style="margin:0;padding-top:4px;display:flex;justify-content:center">
-        <img src="assets/praline-logo.png" alt="Praliné Coffee House" width="248" height="82" style="width:248px;height:auto;display:block">
-      </h1>
+    <div class="ornament" aria-hidden="true"><svg class="ic ic-xs"><use href="#i-bean"/></svg></div>
 
-      <p style="margin:4px 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;font-size:19px;line-height:1.5;color:#FFFFFF;text-align:center;max-width:250px;text-wrap:pretty"><span data-t="heroA"></span><br><span data-t="heroB"></span></p>
-    </div>
-  </div>
-
-  <!-- arco de transición rosa -> blanco -->
-  <div style="position:relative;margin-top:-58px;height:58px;overflow:hidden">
-    <div style="position:absolute;inset:0;background:#FFFFFF;border-radius:50% 50% 0 0 / 58px 58px 0 0"></div>
-    <!-- filete interior del arco, como la portada del menú impreso -->
-    <div aria-hidden="true" style="position:absolute;left:24px;right:24px;top:10px;height:44px;border-top:1px solid #DCDCCA;border-radius:50% 50% 0 0 / 44px 44px 0 0"></div>
-  </div>
-
-  <!-- ============ 1. EN LA MESA: menú + wifi ============ -->
-  <div style="padding:0 28px;margin-top:-26px;position:relative;display:flex;flex-direction:column;gap:12px;animation:prFade .3s ease-out .06s both">
-    <button type="button" id="menu-open" aria-haspopup="dialog" class="pr-btn-brand" style="width:100%;text-align:left;cursor:pointer;display:flex;align-items:center;gap:16px;min-height:80px;padding:16px 20px;background:#A27572;border:1px solid #A27572;border-radius:8px;transition:transform .18s ease,background .18s ease">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 4.5h16v15H4z"></path><path d="M12 4.5v15"></path><path d="M7 9h2M7 12h2M15 9h2M15 12h2"></path></svg>
-      <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
-        <span data-t="menu" style="font-family:'Jost',sans-serif;font-weight:500;font-size:18px;letter-spacing:.14em;color:#FFFFFF;text-transform:uppercase"></span>
-        <span data-t="menuSub" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;line-height:1.25;color:#FFFFFF"></span>
-      </span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 5.5 16 12l-7 6.5"></path></svg>
-    </button>
-
-    <!-- Wi-Fi -->
-    <div style="padding:16px 18px 18px;background:#EFE3D6;border:1px solid #DCDCCA;border-radius:8px">
-      <div style="display:flex;align-items:center;gap:14px">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#565243" stroke-width="1.1" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M3.5 9.2a13 13 0 0 1 17 0"></path><path d="M6.6 12.6a8.6 8.6 0 0 1 10.8 0"></path><path d="M9.6 16a4.4 4.4 0 0 1 4.8 0"></path><circle cx="12" cy="19.2" r=".9" fill="#565243" stroke="none"></circle></svg>
-        <span data-t="wifi" style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;color:#565243;text-transform:uppercase"></span>
+    <!-- ============ 2. ANTES DE IRTE ============ -->
+    <section class="block reveal" style="--d:.12s" aria-labelledby="rev-title">
+      <h2 class="section-title" id="rev-title"><span data-t="revTitle"></span></h2>
+      <div class="card review">
+        <p class="review-head" data-t="revHead"></p>
+        <p class="review-body" data-t="revBody"></p>
+        <a class="btn-solid" data-link="review" target="_blank" rel="noopener noreferrer">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-star"/></svg>
+          <span data-t="revCta"></span>
+        </a>
+        <p class="review-note" data-t="revCtaSub"></p>
       </div>
-      <dl style="margin:12px 0 0;padding-left:36px;display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:16px;row-gap:6px">
-        <dt data-t="ssid" style="font-family:'Jost',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:#5A3A2E;text-transform:uppercase"></dt>
-        <dd style="margin:0;font-family:ui-monospace,Menlo,monospace;font-size:15px;color:#5A3A2E;letter-spacing:.04em">Praline_Guest</dd>
-        <dt data-t="pass" style="font-family:'Jost',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:#5A3A2E;text-transform:uppercase"></dt>
-        <dd style="margin:0;font-family:ui-monospace,Menlo,monospace;font-size:17px;color:#5A3A2E;letter-spacing:.06em">praline2024</dd>
-      </dl>
-      <button type="button" id="copy-btn" aria-live="polite" class="pr-copy-btn" style="margin-top:14px;width:100%;height:48px;border:1px solid #5A3A2E;border-radius:8px;background:transparent;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#5A3A2E;transition:background .2s"></button>
-    </div>
-  </div>
+    </section>
 
-  <!-- separador: fin de "en la mesa" -->
-  <div aria-hidden="true" style="display:flex;align-items:center;padding:40px 28px 0">
-    <span style="flex:1;height:1px;background:#DCDCCA"></span>
-    <span style="display:flex;align-items:center;justify-content:center;width:26px">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5A3A2E" stroke-width="1" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6.2" ry="9" transform="rotate(-20 12 12)"></ellipse><path d="M14.3 4.2c-3.6 3.3-4.6 6.4-3 9 1.6 2.6 1 5.3-1.6 6.6"></path></svg>
-    </span>
-    <span style="flex:1;height:1px;background:#DCDCCA"></span>
-  </div>
+    <section class="block reveal" style="--d:.16s" aria-labelledby="social-title">
+      <h2 class="section-title" id="social-title"><span data-t="social"></span></h2>
+      <ul class="list">
+        <li><a class="row" data-link="instagram" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg>
+          <span class="row-text"><span class="row-title">Instagram</span><span class="row-sub" data-cfg="instagramHandle"></span></span>
+          <svg class="ic ic-xs row-trail" aria-hidden="true"><use href="#i-out"/></svg>
+        </a></li>
+        <li><a class="row" data-link="facebook" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-facebook"/></svg>
+          <span class="row-text"><span class="row-title">Facebook</span><span class="row-sub">Praliné Coffee House</span></span>
+          <svg class="ic ic-xs row-trail" aria-hidden="true"><use href="#i-out"/></svg>
+        </a></li>
+      </ul>
+    </section>
 
-  <!-- ============ 2. ANTES DE IRTE: reseña + redes ============ -->
-  <div style="padding:36px 28px 0;animation:prFade .3s ease-out .12s both">
-    <h2 style="margin:0 0 14px;display:flex;align-items:center;gap:12px">
-      <span data-t="revTitle" style="font-family:'Jost',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:#5A3A2E;text-transform:uppercase;white-space:nowrap"></span>
-      <span style="width:44px;height:1px;background:#DCDCCA"></span>
-    </h2>
-    <div style="padding:22px 20px 20px;background:#EFE3D6;border:1px solid #DCDCCA;border-radius:8px;display:flex;flex-direction:column;gap:10px">
-      <p data-t="revHead" style="margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:23px;line-height:1.25;color:#5A3A2E;text-wrap:pretty"></p>
-      <p data-t="revBody" style="margin:0;font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.4;color:#5A3A2E;text-wrap:pretty"></p>
-      <!-- Google: enlace directo a "escribir reseña" -->
-      <a href="https://search.google.com/local/writereview?placeid=ChIJx7gxb2OR05ERU7rI-qul3_s" target="_blank" rel="noopener noreferrer" class="pr-btn-card" style="display:flex;align-items:center;gap:14px;min-height:64px;margin-top:6px;padding:12px 18px;background:#FFFFFF;border:1px solid #DCDCCA;border-radius:8px;transition:transform .18s ease,border-color .18s ease">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#565243" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"></path></svg>
-        <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
-          <span data-t="revCta" style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;color:#565243;text-transform:uppercase"></span>
-          <span data-t="revCtaSub" style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.25;color:#5A3A2E"></span>
-        </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8A898" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 5.5 16 12l-7 6.5"></path></svg>
-      </a>
-    </div>
-  </div>
+    <div class="ornament" aria-hidden="true"><svg class="ic ic-xs"><use href="#i-bean"/></svg></div>
 
-  <div style="padding:32px 28px 0;animation:prFade .3s ease-out .16s both">
-    <h2 style="margin:0 0 14px;display:flex;align-items:center;gap:12px">
-      <span data-t="social" style="font-family:'Jost',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:#5A3A2E;text-transform:uppercase;white-space:nowrap"></span>
-      <span style="width:44px;height:1px;background:#DCDCCA"></span>
-    </h2>
-    <!-- dos redes en una sola tarjeta: pesan menos que dos tarjetas sueltas -->
-    <div style="background:#EFE3D6;border:1px solid #DCDCCA;border-radius:8px;overflow:hidden">
-      <a href="https://instagram.com/pralinecoffeehouse" target="_blank" rel="noopener noreferrer" class="pr-btn-card" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;border:0;transition:transform .18s ease">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#565243" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="16.9" cy="7.1" r=".9" fill="#565243" stroke="none"></circle></svg>
-        <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
-          <span style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;color:#565243;text-transform:uppercase">Instagram</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.25;color:#5A3A2E">@pralinecoffeehouse</span>
-        </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8A898" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 5.5 16 12l-7 6.5"></path></svg>
-      </a>
-      <div aria-hidden="true" style="height:1px;margin:0 18px 0 54px;background:#DCDCCA"></div>
-      <a href="https://www.facebook.com/pralinecoffeehouse/" target="_blank" rel="noopener noreferrer" class="pr-btn-card" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;border:0;transition:transform .18s ease">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#565243" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="8.5"></circle><path d="M15 7.6h-1.4c-1.3 0-2 .8-2 2v10.9"></path><path d="M9.3 12.5h5"></path></svg>
-        <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
-          <span style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;color:#565243;text-transform:uppercase">Facebook</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.25;color:#5A3A2E">Praliné Coffee House</span>
-        </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8A898" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 5.5 16 12l-7 6.5"></path></svg>
-      </a>
-    </div>
-  </div>
+    <!-- ============ 3. PARA VOLVER ============ -->
+    <section class="block reveal" style="--d:.2s" aria-labelledby="hours-title">
+      <h2 class="section-title" id="hours-title"><span data-t="hoursTitle"></span></h2>
+      <!-- filas generadas desde HOURS en script.js -->
+      <ul class="hours" id="hours"></ul>
 
-  <!-- separador: fin de "antes de irte" -->
-  <div aria-hidden="true" style="display:flex;align-items:center;padding:40px 28px 0">
-    <span style="flex:1;height:1px;background:#DCDCCA"></span>
-    <span style="display:flex;align-items:center;justify-content:center;width:26px">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5A3A2E" stroke-width="1" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6.2" ry="9" transform="rotate(-20 12 12)"></ellipse><path d="M14.3 4.2c-3.6 3.3-4.6 6.4-3 9 1.6 2.6 1 5.3-1.6 6.6"></path></svg>
-    </span>
-    <span style="flex:1;height:1px;background:#DCDCCA"></span>
-  </div>
-
-  <!-- ============ 3. PARA VOLVER: horario + whatsapp + cómo llegar ============ -->
-  <div style="padding:36px 28px 0;animation:prFade .3s ease-out .24s both">
-    <h2 style="margin:0 0 8px;display:flex;align-items:center;gap:12px">
-      <span data-t="hoursTitle" style="font-family:'Jost',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:#5A3A2E;text-transform:uppercase;white-space:nowrap"></span>
-      <span style="width:44px;height:1px;background:#DCDCCA"></span>
-    </h2>
-    <!-- siete filas generadas desde HOURS en script.js -->
-    <ul id="hours" style="list-style:none;margin:0;padding:0"></ul>
-
-    <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
-      <a id="wa-link" href="https://wa.me/593999322363" target="_blank" rel="noopener noreferrer" class="pr-btn-card" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;background:#EFE3D6;border:1px solid #DCDCCA;border-radius:8px;transition:transform .18s ease,border-color .18s ease">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#565243" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.3A8.5 8.5 0 1 1 20.5 12z"></path><path d="M9 9.4c0 3 2.6 5.6 5.6 5.6.6 0 1-.5 1-1.1 0-.3-.7-.9-1.2-1-.4-.1-.8.7-1.2.6-1-.4-1.9-1.3-2.3-2.3-.1-.4.7-.8.6-1.2-.1-.5-.7-1.2-1-1.2-.6 0-1.1.4-1.1 1z"></path></svg>
-        <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
-          <span style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;color:#565243;text-transform:uppercase">WhatsApp</span>
-          <span data-t="waSub" style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.25;color:#5A3A2E"></span>
-        </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8A898" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 5.5 16 12l-7 6.5"></path></svg>
-      </a>
-
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=PRALIN%C3%89+Coffee+House&amp;query_place_id=ChIJx7gxb2OR05ERU7rI-qul3_s" target="_blank" rel="noopener noreferrer" class="pr-btn-card" style="display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;background:#EFE3D6;border:1px solid #DCDCCA;border-radius:8px;transition:transform .18s ease,border-color .18s ease">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#565243" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 21s6.5-6.1 6.5-10.5A6.5 6.5 0 0 0 5.5 10.5C5.5 14.9 12 21 12 21z"></path><circle cx="12" cy="10.3" r="2.4"></circle></svg>
-        <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
-          <span data-t="way" style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;color:#565243;text-transform:uppercase"></span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.25;color:#5A3A2E">12 de Noviembre y Oriente<br><span data-t="addrNote" style="font-style:italic"></span></span>
-        </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8A898" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M9 5.5 16 12l-7 6.5"></path></svg>
-      </a>
-    </div>
-  </div>
+      <ul class="list list-spaced">
+        <li><a class="row" data-link="whatsapp" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          <span class="row-text"><span class="row-title">WhatsApp</span><span class="row-sub" data-t="waSub"></span></span>
+          <svg class="ic ic-xs row-trail" aria-hidden="true"><use href="#i-out"/></svg>
+        </a></li>
+        <li><a class="row" data-link="maps" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>
+          <span class="row-text"><span class="row-title" data-t="way"></span><span class="row-sub"><span data-cfg="address"></span><br><em data-t="addrNote"></em></span></span>
+          <svg class="ic ic-xs row-trail" aria-hidden="true"><use href="#i-out"/></svg>
+        </a></li>
+      </ul>
+    </section>
+  </main>
 
   <!-- ============ PIE ============ -->
-  <div style="margin-top:48px;background:#565243;padding:44px 28px 38px;position:relative;overflow:hidden;animation:prFade .3s ease-out .36s both">
-    <div aria-hidden="true" style="position:absolute;inset:0;opacity:.15;background-image:url('assets/praline-botanical-sage.png');background-size:280px 280px;background-repeat:repeat"></div>
-    <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px">
-      <div style="display:flex;align-items:flex-end;justify-content:center;gap:18px;margin-bottom:-2px">
-        <img src="assets/mascota-lazo.png" alt="" aria-hidden="true" loading="lazy" style="width:60px;height:auto;display:block">
-        <img src="assets/mascota-sombrero.png" alt="" aria-hidden="true" loading="lazy" style="width:60px;height:auto;display:block">
+  <footer class="footer reveal" style="--d:.28s">
+    <div class="footer-pattern" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div class="mascots" aria-hidden="true">
+        <img src="assets/mascota-lazo.webp" alt="" width="60" height="63" loading="lazy">
+        <img src="assets/mascota-sombrero.webp" alt="" width="60" height="59" loading="lazy">
       </div>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8A898" stroke-width="1" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6.2" ry="9" transform="rotate(-20 12 12)"></ellipse><path d="M14.3 4.2c-3.6 3.3-4.6 6.4-3 9 1.6 2.6 1 5.3-1.6 6.6"></path></svg>
-      <p style="margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:25px;line-height:1.35;letter-spacing:.01em;color:#FFFFFF;text-align:center;text-wrap:pretty"><span data-t="sloganA"></span><br><span data-t="sloganB"></span></p>
-      <a href="https://instagram.com/pralinecoffeehouse" target="_blank" rel="noopener noreferrer" style="font-family:'Jost',sans-serif;font-weight:400;font-size:11.5px;letter-spacing:.22em;color:#DCDCCA;text-transform:uppercase;min-height:48px;display:flex;align-items:center">@pralinecoffeehouse</a>
-      <span style="font-family:'Jost',sans-serif;font-weight:400;font-size:10px;letter-spacing:.2em;color:#DCDCCA;text-transform:uppercase">Baños de Agua Santa · Ecuador</span>
+      <p class="slogan"><span data-t="sloganA"></span><br><span data-t="sloganB"></span></p>
+      <a class="footer-link" data-link="instagram" data-cfg="instagramHandle" target="_blank" rel="noopener noreferrer"></a>
+      <span class="footer-place">Baños de Agua Santa · Ecuador</span>
     </div>
-  </div>
+  </footer>
 
 </div>
 </div>
 
 <!-- ============ VISOR DE MENÚ (hoja inferior) ============ -->
-<div id="menu-sheet" hidden style="position:fixed;inset:0;z-index:20">
-  <div id="menu-backdrop" style="position:absolute;inset:0;background:rgba(90,58,46,.45);opacity:0;transition:opacity .3s ease"></div>
-  <div id="menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title" style="position:absolute;left:0;right:0;bottom:0;top:max(20px, env(safe-area-inset-top));max-width:480px;margin:0 auto;background:#FFFFFF;border-radius:16px 16px 0 0;display:flex;flex-direction:column;overflow:hidden;transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.8,.2,1)">
-    <div id="menu-head" style="position:relative;flex:none;border-bottom:1px solid #DCDCCA;background:#FFFFFF">
-      <div aria-hidden="true" style="position:absolute;inset:0;opacity:.10;background-image:url('assets/praline-botanical-sage.png');background-size:240px 240px"></div>
-      <div aria-hidden="true" style="position:relative;display:flex;justify-content:center;padding-top:8px"><span style="width:40px;height:4px;border-radius:2px;background:#DCDCCA"></span></div>
-      <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:2px 10px 0 24px">
-        <h2 id="menu-title" data-t="menuTitle" style="margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:28px;color:#5A3A2E"></h2>
-        <button type="button" id="menu-close" style="width:48px;height:48px;padding:0;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center">
-          <span style="width:38px;height:38px;border:1px solid #DCDCCA;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A3A2E" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
-          </span>
+<div id="menu-sheet" class="sheet" hidden>
+  <div id="menu-backdrop" class="sheet-backdrop"></div>
+  <div id="menu-panel" class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+    <div id="menu-head" class="sheet-head">
+      <div class="sheet-pattern" aria-hidden="true"></div>
+      <div class="sheet-grip" aria-hidden="true"><span></span></div>
+      <div class="sheet-titlebar">
+        <h2 id="menu-title" data-t="menuTitle"></h2>
+        <button type="button" id="menu-close" class="icon-btn">
+          <svg class="ic ic-sm" aria-hidden="true"><use href="#i-close"/></svg>
         </button>
       </div>
-      <nav id="menu-chips" style="position:relative;display:flex;gap:8px;overflow-x:auto;padding:6px 24px 10px;scrollbar-width:none;overscroll-behavior-x:contain"></nav>
+      <nav id="menu-chips" class="chips"></nav>
     </div>
-    <div id="menu-body" style="position:relative;flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 24px calc(40px + env(safe-area-inset-bottom))"></div>
+    <div id="menu-body" class="sheet-body"></div>
   </div>
 </div>
 
