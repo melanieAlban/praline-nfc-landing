@@ -1,17 +1,33 @@
 (function () {
+  // ============================================================
+  // DATOS DEL LOCAL: edita aquí y se actualiza toda la página.
+  // ============================================================
+  var CONFIG = {
+    wifiSsid: 'Praline_Guest',
+    wifiPass: 'praline2024',
+    whatsapp: '593999322363',                 // solo dígitos, con código de país
+    instagramHandle: '@pralinecoffeehouse',
+    instagram: 'https://instagram.com/pralinecoffeehouse',
+    facebook: 'https://www.facebook.com/pralinecoffeehouse/',
+    googlePlaceId: 'ChIJx7gxb2OR05ERU7rI-qul3_s', // reseñas y Google Maps
+    mapsQuery: 'PRALINÉ Coffee House',
+    address: '12 de Noviembre y Oriente'
+  };
+
   var dict = {
     es: {
       open: 'Abierto ahora', closed: 'Cerrado ahora',
       until: 'Hasta las {t}', backAt: 'Volvemos a las {t}', opensAt: 'Abrimos a las {t}',
       opensTomorrow: 'Abrimos mañana a las {t}', opensOn: 'Abrimos el {d} a las {t}',
       heroA: 'Cafetería de especialidad', heroB: 'Baños de Agua Santa, Ecuador',
-      menu: 'Ver menú', menuSub: 'Desayunos, café y postres',
+      menu: 'Ver menú', menuShort: 'Menú', menuSub: 'Desayunos, café y postres',
+      home: 'Praliné, volver al inicio', nav: 'Navegación principal', lang: 'Idioma', tableSection: 'Menú y Wi-Fi',
       wifi: 'Wi-Fi', ssid: 'Red', pass: 'Clave',
       copy: 'Copiar clave', copied: 'Clave copiada',
       revTitle: 'Antes de irte',
       revHead: '¿Te gustó? Cuéntalo',
       revBody: 'Somos una casa pequeña y cada reseña en Google ayuda a que más gente nos encuentre.',
-      revCta: 'Dejar una reseña', revCtaSub: 'Toma menos de un minuto',
+      revCta: 'Reseñar en Google', revCtaSub: 'Toma menos de un minuto',
       social: 'Síguenos',
       hoursTitle: 'Horario', today: 'Hoy', closedDay: 'Cerrado',
       days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
@@ -27,13 +43,14 @@
       until: 'Until {t}', backAt: 'Back at {t}', opensAt: 'Opening at {t}',
       opensTomorrow: 'Opening tomorrow at {t}', opensOn: 'Opening {d} at {t}',
       heroA: 'Specialty coffee house', heroB: 'Baños de Agua Santa, Ecuador',
-      menu: 'See the menu', menuSub: 'Breakfast, coffee and desserts',
+      menu: 'See the menu', menuShort: 'Menu', menuSub: 'Breakfast, coffee and desserts',
+      home: 'Praliné, back to top', nav: 'Main navigation', lang: 'Language', tableSection: 'Menu and Wi-Fi',
       wifi: 'Wi-Fi', ssid: 'Network', pass: 'Password',
       copy: 'Copy password', copied: 'Password copied',
       revTitle: 'Before you go',
       revHead: 'Enjoyed it? Tell others',
       revBody: 'We are a small house, and every Google review helps more people find us.',
-      revCta: 'Leave a review', revCtaSub: 'Takes less than a minute',
+      revCta: 'Review us on Google', revCtaSub: 'Takes less than a minute',
       social: 'Follow us',
       hoursTitle: 'Opening hours', today: 'Today', closedDay: 'Closed',
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -58,7 +75,7 @@
   ];
   var WEEK = [1, 2, 3, 4, 5, 6, 0]; // orden de la lista: lunes primero
 
-  // Menú real, transcrito de assets/menu.pdf. Ítem: [nombre, precio, descripción, favorito].
+  // Menú real, transcrito de la carta impresa. Ítem: [nombre, precio, descripción, favorito].
   // Nombre y descripción: texto único o [es, en].
   var MENU = [
     { id: 'breakfast', t: ['Desayunos', 'Breakfast'], groups: [{ items: [
@@ -200,47 +217,49 @@
 
   function hoursHtml(dow, t) {
     return WEEK.map(function (day) {
-      var isToday = day === dow;
       var shifts = HOURS[day];
-      var color = isToday ? '#5A3A2E' : shifts.length ? '#7B6158' : '#76766A';
-      var timeStyle = 'font-family:\'Jost\',sans-serif;font-weight:400;font-size:13px;letter-spacing:.04em;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap';
+      var cls = (day === dow ? ' is-today' : '') + (shifts.length ? '' : ' is-closed');
       var cells = shifts.length
-        ? shifts.map(function (s) { return '<span style="' + timeStyle + '">' + s[0] + '–' + s[1] + '</span>'; }).join('')
-        : '<span style="grid-column:2 / 4;text-align:right;font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:18px">' + t.closedDay + '</span>';
-      var tag = isToday ? ' <span style="margin-left:6px;font-family:\'Jost\',sans-serif;font-weight:500;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;vertical-align:2px">' + t.today + '</span>' : '';
-      return '<li style="display:grid;grid-template-columns:1fr 78px 86px;column-gap:12px;align-items:baseline;padding:9px 12px;margin:0 -12px;border-radius:6px;color:' + color + ';background:' + (isToday ? '#EFE3D6' : 'transparent') + '">' +
-        '<span style="font-family:\'Cormorant Garamond\',serif;font-size:19px;line-height:1.3;white-space:nowrap;font-weight:' + (isToday ? 500 : 400) + ';font-style:' + (shifts.length ? 'normal' : 'italic') + '">' + t.days[day] + tag + '</span>' +
-        cells + '</li>';
+        ? shifts.map(function (s) { return '<span class="time">' + s[0] + '–' + s[1] + '</span>'; }).join('')
+        : '<span class="closed">' + t.closedDay + '</span>';
+      var tag = day === dow ? '<span class="tag">' + t.today + '</span>' : '';
+      return '<li class="' + cls.trim() + '"' + (day === dow ? ' aria-current="date"' : '') + '><span class="day">' + t.days[day] + tag + '</span>' + cells + '</li>';
     }).join('');
   }
 
+  var LINKS = {
+    review: function () { return 'https://search.google.com/local/writereview?placeid=' + CONFIG.googlePlaceId; },
+    maps: function () { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.mapsQuery) + '&query_place_id=' + CONFIG.googlePlaceId; },
+    instagram: function () { return CONFIG.instagram; },
+    facebook: function () { return CONFIG.facebook; },
+    whatsapp: function (t) { return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(t.waMsg); }
+  };
+
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+
   function render() {
     var t = dict[lang] || dict.es;
-    var on = lang === 'es';
     var now = new Date();
     var dow = now.getDay();
     var st = status(dow, now.getHours() * 60 + now.getMinutes(), t);
 
     document.documentElement.lang = lang;
-    Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
-      el.textContent = t[el.getAttribute('data-t')];
-    });
+    each('[data-t]', function (el) { el.textContent = t[el.getAttribute('data-t')]; });
+    each('[data-t-aria]', function (el) { el.setAttribute('aria-label', t[el.getAttribute('data-t-aria')]); });
+    each('[data-cfg]', function (el) { el.textContent = CONFIG[el.getAttribute('data-cfg')]; });
+    each('[data-link]', function (el) { el.href = LINKS[el.getAttribute('data-link')](t); });
 
-    [['es', on], ['en', !on]].forEach(function (p) {
-      var pill = $('pill-' + p[0]);
-      pill.style.background = p[1] ? '#5A3A2E' : '#EFE3D6';
-      pill.style.color = p[1] ? '#FFFFFF' : '#5A3A2E';
-      $('btn-' + p[0]).setAttribute('aria-pressed', p[1]);
-    });
+    $('btn-es').setAttribute('aria-pressed', lang === 'es');
+    $('btn-en').setAttribute('aria-pressed', lang === 'en');
 
-    $('status-dot').style.background = st.open ? '#A9B5A2' : '#A8A898';
-    $('status-dot').style.animation = st.open ? 'prPulse 2.6s ease-in-out infinite' : 'none';
+    $('status').classList.toggle('is-open', st.open);
     $('status-label').textContent = st.open ? t.open : t.closed;
     $('status-note').textContent = st.note;
 
-    $('copy-btn').textContent = copied ? t.copied : t.copy;
+    $('copy-text').textContent = copied ? t.copied : t.copy;
+    $('copy-icon').setAttribute('href', copied ? '#i-check' : '#i-copy');
+    $('copy-btn').classList.toggle('is-done', copied);
     $('hours').innerHTML = hoursHtml(dow, t);
-    $('wa-link').href = 'https://wa.me/593999322363?text=' + encodeURIComponent(t.waMsg);
     $('menu-close').setAttribute('aria-label', t.close);
     $('menu-chips').setAttribute('aria-label', t.chips);
   }
@@ -252,12 +271,13 @@
   }
 
   function copyPass() {
-    var pass = 'praline2024';
+    var pass = CONFIG.wifiPass;
     var done = function () {
       copied = true;
       render();
+      $('copy-live').textContent = dict[lang].copied;
       clearTimeout(copyTimer);
-      copyTimer = setTimeout(function () { copied = false; render(); }, 2000);
+      copyTimer = setTimeout(function () { copied = false; $('copy-live').textContent = ''; render(); }, 2200);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(pass).then(done, done);
@@ -271,12 +291,13 @@
   }
 
   // ============ visor de menú ============
-  var HEART = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A27572" stroke-width="1.6" stroke-linejoin="round" role="img" aria-label="{a}" style="flex:none;vertical-align:-1px;margin-left:6px"><path d="M12 20.3s-7.8-4.7-7.8-10.4A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7.8 2.9c0 5.7-7.8 10.4-7.8 10.4z"></path></svg>';
+  var HEART = '<svg class="fav" role="img" aria-label="{a}"><use href="#i-heart"/></svg>';
   var builtLang = null;
   var menuOpen = false;
   var hideTimer = null;
   var savedScroll = 0;
   var panelTransition = '';
+  var opener = null;
 
   function buildMenu() {
     if (builtLang === lang) return;
@@ -284,47 +305,36 @@
     var t = dict[lang];
     var heart = fill(HEART, { a: t.fav });
     $('menu-chips').innerHTML = MENU.map(function (s) {
-      return '<button type="button" data-go="' + s.id + '" style="flex:none;height:48px;padding:0;border:0;background:transparent;cursor:pointer;display:flex;align-items:center">' +
-        '<span style="display:flex;align-items:center;height:34px;padding:0 14px;border:1px solid #DCDCCA;border-radius:999px;font-family:\'Jost\',sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;transition:background .2s,color .2s">' + tr(s.t) + '</span></button>';
+      return '<button type="button" data-go="' + s.id + '">' + tr(s.t) + '</button>';
     }).join('');
 
-    var body = '<p style="margin:18px 0 0;display:flex;align-items:center;font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:17px;color:#5A3A2E">' + t.fav + heart.replace('margin-left:6px', 'margin-left:8px') + '</p>';
+    var body = '<p class="m-fav-note">' + t.fav + heart + '</p>';
     body += MENU.map(function (s) {
-      var html = '<section id="m-' + s.id + '" style="padding-top:30px">' +
-        '<h3 style="margin:0;font-family:\'Playfair Display\',serif;font-weight:400;font-size:25px;line-height:1.2;color:#5A3A2E">' + tr(s.t) + '</h3>';
+      var html = '<section class="m-section" id="m-' + s.id + '"><h3>' + tr(s.t) + '</h3>';
       s.groups.forEach(function (g) {
-        if (g.t) html += '<p style="margin:20px 0 0;font-family:\'Jost\',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5A3A2E">' + tr(g.t) + '</p>';
-        if (g.note) html += '<p style="margin:4px 0 0;font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:17px;color:#7B6158">' + tr(g.note) + '</p>';
-        html += '<ul style="list-style:none;margin:' + (g.t ? 6 : 12) + 'px 0 0;padding:0">' + g.items.map(function (it, i) {
+        if (g.t) html += '<p class="m-group">' + tr(g.t) + '</p>';
+        if (g.note) html += '<p class="m-group-note">' + tr(g.note) + '</p>';
+        html += '<ul class="m-list">' + g.items.map(function (it) {
           var price = it[1].split(' · ').map(function (p) { return '$' + p; }).join(' · ');
-          return '<li style="padding:11px 0;' + (i ? 'border-top:1px solid rgba(220,220,202,.7)' : '') + '">' +
-            '<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">' +
-              '<span style="font-family:\'Cormorant Garamond\',serif;font-weight:500;font-size:20px;line-height:1.25;color:#5A3A2E">' + tr(it[0]) + (it[3] ? heart : '') + '</span>' +
-              '<span style="flex:none;font-family:\'Jost\',sans-serif;font-weight:400;font-size:14px;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:#5A3A2E;white-space:nowrap">' + price + '</span>' +
-            '</div>' +
-            (it[2] ? '<p style="margin:3px 0 0;padding-right:48px;font-family:\'Cormorant Garamond\',serif;font-size:17px;line-height:1.35;color:#7B6158;text-wrap:pretty">' + tr(it[2]) + '</p>' : '') +
-          '</li>';
+          return '<li><div class="m-item"><span class="m-name">' + tr(it[0]) + (it[3] ? heart : '') + '</span>' +
+            '<span class="m-price">' + price + '</span></div>' +
+            (it[2] ? '<p class="m-desc">' + tr(it[2]) + '</p>' : '') + '</li>';
         }).join('') + '</ul>';
       });
-      if (s.note) html += '<p style="margin:14px 0 0;padding:12px 16px;background:#EFE3D6;border:1px solid #DCDCCA;border-radius:8px;font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:17px;line-height:1.35;color:#5A3A2E">' + tr(s.note) + '</p>';
+      if (s.note) html += '<p class="m-note">' + tr(s.note) + '</p>';
       return html + '</section>';
     }).join('');
-    body += '<p style="margin:36px 0 0;text-align:center;font-family:\'Jost\',sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#5A3A2E">' + t.vat + '</p>';
+    body += '<p class="m-vat">' + t.vat + '</p>';
     $('menu-body').innerHTML = body;
   }
 
   function setActiveChip(id) {
     Array.prototype.forEach.call($('menu-chips').children, function (btn) {
-      var active = btn.getAttribute('data-go') === id;
-      var pill = btn.firstChild;
-      pill.style.background = active ? '#5A3A2E' : '#FFFFFF';
-      pill.style.borderColor = active ? '#5A3A2E' : '#DCDCCA';
-      pill.style.color = active ? '#FFFFFF' : '#5A3A2E';
-      if (active) {
+      if (btn.getAttribute('data-go') === id) {
         btn.setAttribute('aria-current', 'true');
         var nav = $('menu-chips');
-        var target = btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2;
-        nav.scrollTo({ left: target, behavior: 'smooth' });
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        nav.scrollTo({ left: btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
       } else {
         btn.removeAttribute('aria-current');
       }
@@ -334,6 +344,7 @@
   function openMenu() {
     if (menuOpen) return;
     menuOpen = true;
+    opener = document.activeElement;
     var rebuilt = builtLang !== lang;
     buildMenu();
     clearTimeout(hideTimer);
@@ -359,7 +370,7 @@
     $('page').inert = false;
     document.body.style.cssText = '';
     window.scrollTo(0, savedScroll);
-    $('menu-open').focus({ preventScroll: true });
+    (opener && document.contains(opener) ? opener : $('menu-open')).focus({ preventScroll: true });
     // el botón "atrás" de Android cierra el menú en vez de sacar al cliente de la página
     if (!fromHistory && history.state && history.state.prMenu) history.back();
   }
@@ -410,6 +421,27 @@
     panel.addEventListener('touchcancel', end);
   }
 
+  // barra superior: transparente sobre el hero; sólida con logo al bajar;
+  // el botón "Menú" aparece cuando el botón grande sale de pantalla.
+  function bindTopbar() {
+    var bar = $('topbar');
+    var hero = document.querySelector('.hero');
+    var cta = $('menu-open');
+    var ticking = false;
+    function update() {
+      ticking = false;
+      if (menuOpen) return;
+      var barH = bar.offsetHeight;
+      bar.classList.toggle('is-solid', hero.getBoundingClientRect().bottom <= barH + 8);
+      bar.classList.toggle('show-cta', cta.getBoundingClientRect().bottom <= barH);
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     panelTransition = $('menu-panel').style.transition;
     // sin esto, history.back() al cerrar el menú devuelve el fondo al inicio de la página
@@ -418,6 +450,8 @@
     $('btn-en').addEventListener('click', function () { setLang('en'); });
     $('copy-btn').addEventListener('click', copyPass);
     $('menu-open').addEventListener('click', openMenu);
+    $('bar-menu').addEventListener('click', openMenu);
+    bindTopbar();
     $('menu-close').addEventListener('click', function () { closeMenu(); });
     $('menu-backdrop').addEventListener('click', function () { closeMenu(); });
     $('menu-body').addEventListener('scroll', onMenuScroll, { passive: true });
