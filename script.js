@@ -75,7 +75,7 @@
   ];
   var WEEK = [1, 2, 3, 4, 5, 6, 0]; // orden de la lista: lunes primero
 
-  // Menú real, transcrito de assets/menu.pdf. Ítem: [nombre, precio, descripción, favorito].
+  // Menú real, transcrito de la carta impresa. Ítem: [nombre, precio, descripción, favorito].
   // Nombre y descripción: texto único o [es, en].
   var MENU = [
     { id: 'breakfast', t: ['Desayunos', 'Breakfast'], groups: [{ items: [
